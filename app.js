@@ -29,7 +29,15 @@ SelectTaskForm.addEventListener("submit", function (event) {
         </a>`;
     
     collection.append(createLiElement);
-   
+    
+    const taskClearTxt = document.querySelector("#task-title");
+    if(createLiElement.innerHTML = ` ${taskInputValue}
+    <a href="#" class="delete-item secondary-content">
+    <i class="fa fa-remove"></i>
+    </a>`){
+        taskClearTxt.innerText = "Tasks";
+    }
+
     selectTaskInputField.value = "" ;
     // console.log(createLiElement, "createLiElement");
     
@@ -53,10 +61,25 @@ const clearTaskBtn = document.querySelector(".clear-tasks");
 
 clearTaskBtn.addEventListener("click", function(){
     // console.log("its working");
+    const taskClearTxt = document.querySelector("#task-title")
     const collection = document.querySelector(".collection");
     if(confirm("Are you Sure")){
         collection.innerHTML = "" ;
+    
+        taskClearTxt.innerText = "*All Tasks Are Cleared*";
     }
+    
+    // const liCollection = document.querySelector(".collection-item");    
+        
+    // else if()
+    // {
+    //    
+    // }
+
+
+    // const taskClearTxt = document.querySelector("#task-title")
+    // // console.log(taskClearTxt, "taskClearTxt")
+    // taskClearTxt.innerText = "All Task Are Cleared";
 })
 
 const taskFilter = document.querySelector("#filter");
